@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Create Quickhire Job - Jobster</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    />
+    <link rel="shortcut icon" href="/images/icon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="keywords"
+      content="Soft Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
+    />
+    <script>
+      addEventListener(
+        "load",
+        function() {
+          setTimeout(hideURLbar, 0);
+        },
+        false
+      );
+      function hideURLbar() {
+        window.scrollTo(0, 1);
+      }
+    </script>
+    <!--//tags -->
+    <link
+      href="/css/bootstrap.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+    <link href="/css/font-awesome.css" rel="stylesheet" />
+    <!-- //for bootstrap working -->
+    <link
+      href="//fonts.googleapis.com/css?family=Work+Sans:200,300,400,500,600,700"
+      rel="stylesheet"
+    />
+    <link
+      href="//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <!-- header -->
+
+    <% include partials/navbarCompany %>
+
+    <hr />
+
+    <div class="container">
+      <div class="quickhire-wrapper min-height-content">
+        <h1>
+          Create Quickhire Job
+        </h1>
+        <br />
+        <form method="post" action="/company/quickhire/create">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="col-form-label">Job Title : </label>
+              <select
+                class="form-control"
+                name="job_title"
+                id="job_title"
+                required
+              >
+                <option value="Front End Developer">Front End Developer</option>
+                <option value="Back End Developer">Back End Developer</option>
+                <option value="Full Stack Developer"
+                  >Full Stack Developer</option
+                >
+                <option value="Full Stack Developer"
+                  >Mobile Application Developer</option
+                >
+                <option value="Cyber Security">Cyber Security</option>
+                <option value="IT Support">IT Support</option>
+              </select>
+              <!-- <select class="form-control" name="job_title">
+                                      <option value="Front End Developer">Front End Developer</option>
+                                      <option value="Back End Developer">Back End Developer</option>
+                                    </select> -->
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="form-group">
+              <label>Salary : Rp.</label>
+              <input
+                type="number"
+                class="form-control"
+                name="amount"
+                required
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="form-group">
+              <label>Time Unit : Each</label>
+              <select
+                class="form-control"
+                name="time_unit"
+                id="time_unit"
+                required
+              >
+                <option value="Day">Day</option>
+                <option value="Week">Week</option>
+                <option value="Month">Month</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Location : </label>
+              <select class="form-control" name="location" required>
+                <option value="Medan">
+                  Medan
+                </option>
+                <option value="Belawan">Belawan</option>
+                <option value="Binjai">Binjai</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Date needed : </label>
+              <input
+                type="date"
+                name="required_date"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Description : </label>
+              <textarea
+                class="form-control"
+                name="description"
+                required
+              ></textarea>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="form-group">
+              <input
+                class="btn btn-success btn-block"
+                type="submit"
+                value="Create"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="form-group">
+              <a class="btn btn-danger btn-block" href="/company">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <% include partials/footer %>
+    <!-- //footer -->
+
+    <a href="#home" class="scroll" id="toTop" style="display: block;">
+      <span id="toTopHover" style="opacity: 1;"> </span
+    ></a>
+    <!-- js -->
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+  </body>
+</html>

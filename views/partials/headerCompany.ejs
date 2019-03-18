@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title></title>
+    </head>
+    <body>
+      <% if (!user) { %>
+      <form method="post" action="/login/company">
+          <div class="form-group">
+            <label for="username">Username</label>
+              <input type="text" autocomplete="off" name="username" class="form-control input-sm" id="username">
+        </div>
+          <div class="form-group">
+            <label for="pwd">Password</label>
+            <input type="password" name="password" class="form-control input-sm" id="pwd">
+          </div>
+         <div>
+            <p>New right here?</p>
+            <a href="/register/company"><p>Register here</p></a>
+            <br>
+        </div>
+        <button type="submit" class="btn btn-default">Login</button>
+        <% } else { %>
+          <div class="form-group">
+            <span>Hello, <%= user.name %></span><br /><br />
+            <a href="/logout"><button class="form-control btn btn-danger" type="submit" value="Log out"/>Log Out</button></a>
+          </div>
+        <% } %>
+    </form>
+    </body>
+  </html>
+  </form>
+  </body>
+</html>

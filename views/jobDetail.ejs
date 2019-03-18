@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="/images/icon.ico" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="keywords"
+      content="Soft Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+  Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
+    />
+    <title>
+      <%= jobdata.job_title %> - <%= jobdata.company.name %> | Jobster
+    </title>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.js"
+      integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg="
+      crossorigin="anonymous"
+    >
+         addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+      }, false);
+      function hideURLbar() {
+        window.scrollTo(0, 1);
+      }
+    </script>
+    <!--//tags -->
+    <link
+      href="/css/bootstrap.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+    <link href="/css/font-awesome.css" rel="stylesheet" />
+    <!-- //for bootstrap working -->
+    <link
+      href="//fonts.googleapis.com/css?family=Work+Sans:200,300,400,500,600,700"
+      rel="stylesheet"
+    />
+    <link
+      href="//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <!-- header -->
+    <% include partials/navbar %>
+
+    <hr style="margin-bottom: 0px" />
+    <div class="title-wrapper">
+      <div class="img-overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 job-info-wrapper">
+            <h2 class="job-title-header"><%= jobdata.job_title %></h2>
+            <br />
+            <span class="padding-right-2"
+              ><i class="fa fa-building"></i> <%= jobdata.company.name %></span
+            >
+            <span
+              ><i class="fa fa-map-marker"></i> <%= jobdata.location %></span
+            >
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+            <img
+              class="job-img-company"
+              src="<%= jobdata.company.companyDetail.image %>"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-wrapper">
+      <div class="container">
+        <div class="row" style="font-family: Arial, Helvetica, sans-serif;">
+          <div class="col-md-8 col-xs-12 job-info-content">
+            <form method="post" action="/jobs/<%= jobdata._id %>?_method=PUT">
+              Detail:
+              <br />
+              <span><i class="fa fa-dollar"></i></span>
+              <span id="salary">
+                <%= jobdata.salary %>
+              </span>
+              <br />
+              <span><i class="fa fa-clock-o"></i></span>
+              <span id="salary">
+                <%= jobdata.job_type %>
+              </span>
+              <br />
+              <p style="white-space: pre-line">
+                Description : <br /><%= jobdata.description %><br />
+                Requirements : <br /><%= jobdata.requirements %><br />
+              </p>
+
+              <br />
+
+              <% if (jobdata.seeker.filter( x => x.seeker_id == user.id ).length
+              > 0) { %>
+              <button
+                class="btn btn-block btn-lg btn-applied"
+                type="submit"
+                name="Applied"
+                disabled
+              >
+                Applied
+              </button>
+              <% } else { %>
+              <button class="btn btn-block btn-lg btn-apply" type="submit">
+                Apply now
+              </button>
+              <% } %>
+            </form>
+          </div>
+          <div class="col-md-4">
+            Person applied this job : <%= jobdata.seeker.length %> person(s)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <% include partials/footer %>
+    <script type="text/javascript">
+      let salary = document.getElementById("salary").innerHTML;
+      document.getElementById("salary").innerHTML = convertToRupiah(
+        salary.trim()
+      );
+      function convertToRupiah(angka) {
+        let rupiah = "";
+        let angkarev = angka
+          .toString()
+          .split("")
+          .reverse()
+          .join("");
+        for (var i = 0; i < angkarev.length; i++)
+          if (i % 3 == 0) rupiah += angkarev.substr(i, 3) + ".";
+        return (
+          "Rp. " +
+          rupiah
+            .split("", rupiah.length - 1)
+            .reverse()
+            .join("")
+        );
+      }
+    </script>
+  </body>
+</html>

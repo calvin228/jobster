@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Job Status Detail - Jobster</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    />
+    <link rel="shortcut icon" href="/images/icon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="keywords"
+      content="Soft Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.js"
+      integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      addEventListener(
+        "load",
+        function() {
+          setTimeout(hideURLbar, 0);
+        },
+        false
+      );
+      function hideURLbar() {
+        window.scrollTo(0, 1);
+      }
+    </script>
+    <!--//tags -->
+    <link
+      href="/css/bootstrap.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+    <link href="/css/font-awesome.css" rel="stylesheet" />
+    <!-- //for bootstrap working -->
+    <link
+      href="//fonts.googleapis.com/css?family=Work+Sans:200,300,400,500,600,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand"
+      rel="stylesheet"
+    />
+    <link
+      href="//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <% include partials/navbarCompany %>
+    <hr />
+    <section class="container min-height-content" style="font-family: 'Quicksand', sans-serif">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="manage-jobs">
+            <h3>Candidates List</h3>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Current Status</th>
+                <th>Actions</th>
+                <th>Description</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (i = 0; i < jobdata.seeker.length ; i++) { %>
+              <tr>
+                <td><a href="/profile/<%= jobdata.seeker[i].seeker_id.id %>"><%= jobdata.seeker[i].seeker_id.name %></a></td>
+                <td><%= jobdata.seeker[i].status %></td>
+                <form
+                  method="post"
+                  action="/company/jobstatus/<%= jobdata.id %>/<%= jobdata.seeker[i].id %>"
+                >
+                  <td>
+                    <select name="decision" class="actions">
+                      <option value="On Review">
+                        On Review
+                      </option>
+                      <option value="Proceed to Interview">
+                        Proceed to Interview
+                      </option>
+                      <option value="Proceed to Interview #2">
+                        Proceed to Interview #2
+                      </option>
+                      <option value="Proceed to Interview #3">
+                        Proceed to Interview #3
+                      </option>
+                      <option value="Reject">
+                        Reject
+                      </option>
+                      <option value="Accept">
+                        Accept
+                      </option>
+                    </select>
+                  </td>
+                  <td>
+                    <textarea name="description" style="resize: none"></textarea>
+                  </td>
+                  <td>
+                    <button class="btn-process" type="submit" value="Process">
+                      Process
+                    </button>
+                  </td>
+                </form>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+
+          <div class="row">
+            <div class="col-sm-8">
+              <span></span>
+            </div>
+            <div class="col-sm-4">
+              <div class="row">
+                <div class="col-xs-2"></div>
+                <div class="col-xs-2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+
+    <% include partials/footer %>
+
+    <a href="#home" class="scroll" id="toTop" style="display: block;">
+      <span id="toTopHover" style="opacity: 1;"> </span
+    ></a>
+    <!-- js -->
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+  </body>
+</html>

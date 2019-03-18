@@ -1,0 +1,71 @@
+<div class="header" id="home">
+  <div class="content white agile-info">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+            <img src="/images/logo.png" width="160" height="65" />
+          </a>
+        </div>
+        <!--/.navbar-header-->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <nav class="link-effect-2" id="link-effect-2">
+            <ul class="nav navbar-nav">
+              <li class="<% if (nav_active === 'Home') { %>active<% } %>">
+                <a href="/" class="effect-3">Home</a>
+              </li>
+              <li
+                class="dropdown <% if (nav_active === 'Jobs') { %>active<% } %>"
+              >
+                <a href="/jobs" class="effect-3">Opportunities</a>
+              </li>
+
+              <li class="dropdown <% if (nav_active === 'About') { %>active<% } %>"><a href="/about" class="effect-3">About Us</a></li>
+
+              <% if(!user) { %>
+              <li class="dropdown">
+                <a href="/company" class="effect-3" style="color: 	#0080ff"
+                  >| Employer</a
+                >
+              </li>
+              <% } %>
+
+              <li>
+                <div class="dropdown">
+                  <% if (!user) { %>
+                  <img src="/images/profile-icon.png" width="33" height="33" />
+                  <% } else { %>
+
+                  <img
+                    src="<%= user.userDetail.profile_image %>"
+                    width="33"
+                    height="33"
+                  />
+                  <% } %>
+
+                  <div class="dropdown-content">
+                    <h3>Sign In</h3>
+
+                    <hr />
+                    <% include header %>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
