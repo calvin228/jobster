@@ -3,5 +3,6 @@ module.exports = (req, res, next) => {
     next();
   } else if (req.user.role === "employer") {
     return res.redirect("/company");
-  }
+  } 
+  next();
 };

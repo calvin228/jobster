@@ -47,6 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       rel="stylesheet"
       type="text/css"
     />
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   </head>
   <body>
     <!-- header -->
@@ -118,12 +119,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <div class="col-md-12">
             <div class="form-group">
               <label>Location : </label>
-              <select class="form-control" name="location" required>
-                <option value="Medan">
-                  Medan
-                </option>
-                <option value="Belawan">Belawan</option>
-                <option value="Binjai">Binjai</option>
+              <select
+                id="location"
+                class="form-control"
+                name="location"
+                required
+              >
               </select>
             </div>
           </div>
@@ -174,8 +175,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <span id="toTopHover" style="opacity: 1;"> </span
     ></a>
     <!-- js -->
-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script src="/js/load-location.js"></script>
 
-    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
   </body>
 </html>

@@ -4,5 +4,6 @@ module.exports = (req, res, next) => {
     } else if (req.user.role === "seeker") {
       return res.redirect("/");
     }
+    next();
   };
   

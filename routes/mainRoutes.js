@@ -6,7 +6,7 @@ const forbidEmployer = require("../middleware/forbidEmployer");
 const forbidSeeker = require("../middleware/forbidSeeker");
 
 module.exports = (app, upload) => {
-  app.get("/", (req, res) => {
+  app.get("/", forbidEmployer, (req, res) => {
     res.render("home", { user: req.user, nav_active: "Home" });
   });
 
