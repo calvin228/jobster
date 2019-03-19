@@ -15,6 +15,7 @@
       content="Soft Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
     />
+
     <script>
       addEventListener(
         "load",
@@ -48,6 +49,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       type="text/css"
     />
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css"/>
   </head>
   <body>
     <!-- header -->
@@ -132,9 +135,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="form-group">
               <label>Date needed : </label>
               <input
-                type="date"
+                id="date"
                 name="required_date"
                 class="form-control"
+                data-provide="datepicker"
+                placeholder="Click the input field"
                 required
               />
             </div>
@@ -176,6 +181,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     ></a>
     <!-- js -->
     <script src="/js/load-location.js"></script>
+    <script>
+      $(function() {
+        let date = new Date();
+        date.setDate(date.getDate());
+        $("#date").datepicker({ format: "dd/mm/yyyy", startDate: date });
+      });
+    </script>
 
     <script type="text/javascript" src="/js/bootstrap.js"></script>
   </body>
