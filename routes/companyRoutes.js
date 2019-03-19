@@ -1,15 +1,13 @@
 const checkRoles = require("../middleware/checkRoles");
 const requireEmployer = require("../middleware/requireEmployer");
+const requireLoginCompany = require("../middleware/requireLoginCompany");
 const Jobs = require("../models/Jobs");
-const User = require("../models/User");
-const Quickhire = require("../models/Quickhire");
-const moment = require("moment");
 
 module.exports = app => {
   app.get("/company", requireEmployer, (req, res) => {
     res.render("homeCompany", { user: req.user, nav_active: "Home" });
   });
-  app.get("/company/createjob", checkRoles("employer"), (req, res) => {
+  app.get("/company/createjob", requireLoginCompany, checkRoles("employer"), (req, res) => {
     res.render("createJob", {
       user: req.user,
       message: req.flash("error"),

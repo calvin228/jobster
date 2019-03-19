@@ -45,7 +45,7 @@ module.exports = (app, upload) => {
     upload.single("image"),
     async (req, res) => {
       const { dob, phone_number, hire_allow, location, quickhire } = req.body;
-
+      console.log(req.body);
       let userData;
       if (req.file) {
         const result = await cloudinary.uploader.upload(req.file.path);
@@ -75,7 +75,8 @@ module.exports = (app, upload) => {
           "userDetail.phone_number": userData.phone_number,
           "userDetail.hire_allow": userData.hire_allow,
           "userDetail.location": userData.location,
-          "userDetail.profile_image": userData.profile_image
+          "userDetail.profile_image": userData.profile_image,
+          "userDetail.quickhire": userData.quickhire
         }
       ).then(() => {
         res.redirect("/my-profile");

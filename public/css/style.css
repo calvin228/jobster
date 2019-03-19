@@ -2022,12 +2022,13 @@ html {
   height: 100%;
 }
 
-
 .flex-container {
   background-color: #72b4fd;
   min-height: 100vh;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding: 15px;
 }
 .auth-title {
@@ -2039,27 +2040,34 @@ html {
   padding-bottom: 5vh;
 }
 
-.auth-logo-img{
+.auth-logo-img {
   width: 35%;
   display: block;
   margin: auto;
- 
 }
 
 .auth-box {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   width: 40%;
   background: white;
   padding: 3%;
   border-radius: 15px;
   margin: 5vw 0;
+  height: 50%;
 }
 
-.auth-form{
-  width: 80%;
+.auth-form {
+  width: 90%;
   margin: auto;
+  margin-bottom: 10%;
+  vertical-align: middle;
 }
 
+@media only screen and (max-width: 768px){
+  .auth-box{
+    width: 80%;
+  }
+}
 .min-height-content {
   min-height: 400px;
 }

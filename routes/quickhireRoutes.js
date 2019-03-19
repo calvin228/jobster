@@ -5,13 +5,16 @@ const Quickhire = require("../models/Quickhire");
 const moment = require("moment");
 const requireLogin = require("../middleware/requireLogin");
 
-
 module.exports = app => {
   app.get("/quickhire-alert", requireLogin, (req, res) => {
     Quickhire.find({ "request_list.seeker_id": req.user.id })
       .populate("company")
       .then(quickhire => {
-        res.render("quickhireAlert", { user: req.user, quickhire, nav_active: "" });
+        res.render("quickhireAlert", {
+          user: req.user,
+          quickhire,
+          nav_active: ""
+        });
       });
   });
 
@@ -20,7 +23,11 @@ module.exports = app => {
     Quickhire.findById(id)
       .populate("company")
       .then(quickhire => {
-        res.render("quickhireAlertDetail", { user: req.user, quickhire, nav_active: "" });
+        res.render("quickhireAlertDetail", {
+          user: req.user,
+          quickhire,
+          nav_active: ""
+        });
       });
   });
 
@@ -46,7 +53,11 @@ module.exports = app => {
             "request_list.$.status": choice
           }
         }
-      ).then(quickhire => {
+      ).then(async quickhire => {
+        const user = await User.updateOne(
+          { _id: req.user.id },
+          { $set: { "userDetail.hire_allow": false } }
+        ).exec();
         res.redirect(`/quickhire-alert/${id}`);
       });
     }
