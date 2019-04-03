@@ -2,6 +2,8 @@
 
 An online job portal
 
+DEMO : jobster-uph.herokuapp.com
+
 Step to run this app:
 1. Clone this project
 2. Run `npm install`
